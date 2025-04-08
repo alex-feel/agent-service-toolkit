@@ -96,7 +96,7 @@ async def _handle_input(
     run_id = uuid4()
     thread_id = user_input.thread_id or str(uuid4())
 
-    configurable = {"thread_id": thread_id, "model": user_input.model}
+    configurable = {"thread_id": thread_id}
 
     if user_input.agent_config:
         if overlap := configurable.keys() & user_input.agent_config.keys():

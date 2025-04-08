@@ -2,15 +2,11 @@ from dataclasses import dataclass
 
 from langgraph.graph.state import CompiledStateGraph
 
-from agents.bg_task_agent.bg_task_agent import bg_task_agent
-from agents.chatbot import chatbot
-from agents.command_agent import command_agent
-from agents.interrupt_agent import interrupt_agent
-from agents.langgraph_supervisor_agent import langgraph_supervisor_agent
-from agents.research_assistant import research_assistant
+from agents.cats_only_system.agent import cats_graph
+from agents.aisa.agent import aisa_graph
 from schema import AgentInfo
 
-DEFAULT_AGENT = "research-assistant"
+DEFAULT_AGENT = "Cats Only System"
 
 
 @dataclass
@@ -20,16 +16,8 @@ class Agent:
 
 
 agents: dict[str, Agent] = {
-    "chatbot": Agent(description="A simple chatbot.", graph=chatbot),
-    "research-assistant": Agent(
-        description="A research assistant with web search and calculator.", graph=research_assistant
-    ),
-    "command-agent": Agent(description="A command agent.", graph=command_agent),
-    "bg-task-agent": Agent(description="A background task agent.", graph=bg_task_agent),
-    "langgraph-supervisor-agent": Agent(
-        description="A langgraph supervisor agent", graph=langgraph_supervisor_agent
-    ),
-    "interrupt-agent": Agent(description="An agent the uses interrupts.", graph=interrupt_agent),
+    "Cats Only System": Agent(description="Cats chatbot.", graph=cats_graph),
+    "Requirements Assistant": Agent(description="Requirements assistant.", graph=aisa_graph),
 }
 
 
